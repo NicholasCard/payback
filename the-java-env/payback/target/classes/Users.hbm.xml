@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "hibernate_test.Users" table = "USERS">
+      
+      <id name = "id" type = "int" column = "id">
+         <!-- <generator class="native"/> -->
+         <generator class="sequence" >
+	        <param name="sequence">users_id_seq</param>
+	      </generator>
+      </id>
+      
+      <property name = "f_name" column = "f_name" type = "string"/>
+      <property name = "l_name" column = "l_name" type = "string"/>
+      <!--<property name = "email" column = "email" type = "string"/>-->
+      <!-- <property name = "salary" column = "salary" type = "int"/> -->
+      
+      <set name = "requests" cascade="all">
+         <key column = "user_id"/>
+         <one-to-many class="hibernate_test.Request"/>
+      </set>
+      
+      
+
+   </class>
+</hibernate-mapping>

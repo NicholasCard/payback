@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "hibernate_test.Request" table = "REQUESTS">
+      
+      <id name = "id" type = "int" column = "id">
+         <!-- <generator class="native"/> -->
+         <generator class="sequence" >
+	        <param name="sequence">requests_id_seq</param>
+	      </generator>
+      </id>
+      
+      <property name = "amt" column = "amt" type = "double"/>
+      <property name = "status" column = "status" type = "string"/>
+      
+      <many-to-one name = "users" column = "user_id"
+        class="hibernate_test.Users" not-null ="true" cascade="all"/>
+   </class>
+</hibernate-mapping>
