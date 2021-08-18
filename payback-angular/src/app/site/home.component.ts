@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Router } from "@angular/router";
 
 
@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
             <button (click)="logout()">Logout</button>
             <ul>
             <li><a routerLink="">Home</a></li>
-            <li><a routerLink="menus">Menus</a></li>
+            <li><a routerLink="requests">Requests</a></li>
             </ul>
             <router-outlet></router-outlet>
         </div>
@@ -19,10 +19,10 @@ import { Router } from "@angular/router";
 export class HomeComponent{
 
     constructor(private router:Router){}
+    
 
     logout(){
         localStorage.clear()
         this.router.navigate(['login'])
     }
-
 }

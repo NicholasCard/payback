@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 import { AppComponent } from './app.component';
-import { MenusComponent } from './menus/menus.component';
+import { RequestsComponent } from './requests/requests.component';
 import { LoginComponent } from './site/login.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './site/home.component';
@@ -13,14 +13,14 @@ import { AuthGuard } from './site/auth.guard';
 
 const routes:Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard], children: 
-    [{ path: 'menus', component: MenusComponent }] },
+    [{ path: 'requests', component: RequestsComponent }] },
   { path: 'login', component: LoginComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenusComponent,
+    RequestsComponent,
     LoginComponent,
     HomeComponent
   ],
